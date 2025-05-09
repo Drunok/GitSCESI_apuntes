@@ -86,3 +86,70 @@ $ git commit -m "cambios realizados en el archivo index"
 
 ## ¿Que es el HEAD?
 El HEAD es el punto actual en del historial de cambios en el repositorio (En otras palabras es el punto en el que estamos actualmente).
+
+
+# 3. Ramas, Merge y Conflictos
+<p align="center">
+  <img src="Images/ramas.png" alt="Ramas Git" width="400"/>
+</p>
+
+## Ramas en Git
+Las ramas permiten trabajar en distintas versiones del código de forma aislada.
+Por defecto, todo proyecto comienza en la rama main o master.
+
+### Para crear una nueva rama:
+
+```bash
+git branch nombre-rama
+```
+### Para cambiar de rama:
+
+```bash
+git checkout nombre-rama
+```
+Las ramas se usan para desarrollar nuevas funcionalidades sin necesidad de afectar el codigo actual
+
+## Merge de ramas
+El comando git merge se usa para unir los cambios de una rama en otra, normalmente desde una rama secundaria hacia main o dev.
+
+```bash
+git checkout main
+git merge nombre-rama
+```
+
+## Conflictos de merge (Merge Conflicts)
+Un conflicto ocurre cuando dos ramas modifican la misma parte del mismo archivo y Git no puede decidir cuál mantener.
+
+Git marcará las zonas en conflicto así:
+
+```plaintext
+Copiar
+Editar
+<<<<<<< HEAD
+tu código
+=======
+código de la otra rama
+>>>>>>> nombre-rama
+```
+### Para resolver un conflicto:
+- Abre el archivo en conflicto.
+
+- Elige qué código mantener o combina ambos.
+
+- Guarda los cambios.
+
+- Marca como resuelto:
+
+```bash
+git add archivo
+git commit
+```
+## Eliminar ramas
+``` bash
+$ git branch --delete rama_objetivo
+```
+
+Esto es realizado con fines de organizacion, pero mucho cuidado ya que se perdera todo el trabajo
+realizado en ella si no esta mergeada.
+
+
