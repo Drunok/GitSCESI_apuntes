@@ -45,3 +45,44 @@ Al usar Git nuestros archivos pueden estar en alguno de los siguientes estados:
   <img src="Images/estados_git.png" alt="Estados de Git" width="400"/>
 </p>
 
+## Como deshacer un archivo modificado
+Los siguientes comandos los podemos usar en el caso de que querramos volver a la ultima version de un archivo que
+estabamos modificando, ten en cuenta que usando estos comandos perderas tu trabajo realizado en estos archivos.
+```bash
+# restaurar el archivo index.html
+$ git restore index.html
+
+# restaurar todo el directorio de trabajo
+$ git restore .
+
+# restaurar todos los archivos terminados en *.js
+$ git restore '*.js'
+
+```
+## Añadir archivos al area de staging
+```bash
+# añade todos los cambios realizados
+$ git add .
+
+# añade los cambios realizados en un determinado archivo
+$ git add index.html
+
+# En caso de que ya no quieras añadir ese archivo y lo quieras quitar
+$ git reset index.html
+
+```
+## ¿Que es un Commit?
+<p align="center">
+  <img src="Images/commit.png" alt="Que es un commit?" width="400"/>
+</p>
+
+Los commits sirven para guardar los cambios en el repositorio, es una de las piezas mas importantes para entender git.
+
+```bash
+# Para realizar un commit
+$ git commit -m "cambios realizados en el archivo index"
+
+```
+
+## ¿Que es el HEAD?
+El HEAD es el punto actual en del historial de cambios en el repositorio (En otras palabras es el punto en el que estamos actualmente).
