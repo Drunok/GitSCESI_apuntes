@@ -41,4 +41,7 @@ Al usar Git nuestros archivos pueden estar en alguno de los siguientes estados:
 - **Staged**: Los cambios estan listos para ser guardados en el repositorio local.
 - **Commited**: Los cambios han sido guardados con exito en el repositorio local a esta accion se llama commit. 
 
-![Estados de Git](Images/estados_git.png)
+<p align="center">
+  <img src="Images/estados_git.png" alt="Estados de Git" width="400"/>
+</p>
+
