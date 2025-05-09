@@ -34,3 +34,11 @@ Para inicializar un proyecto debemos irnos al directorio donde queremos que este
 ```bash
 $ git init
 ```
+
+# 2. States y Commits
+Al usar Git nuestros archivos pueden estar en alguno de los siguientes estados:
+- **Modified**: El archivo contiene cambios pero todavía no han sido marcados para ser confirmados. Se encuentra en el directorio de trabajo.
+- **Staged**: Los cambios estan listos para ser guardados en el repositorio local.
+- **Commited**: Los cambios han sido guardados con exito en el repositorio local a esta accion se llama commit. 
+
+(.\Images\estados_git.png)
