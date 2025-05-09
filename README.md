@@ -123,8 +123,6 @@ Un conflicto ocurre cuando dos ramas modifican la misma parte del mismo archivo 
 Git marcará las zonas en conflicto así:
 
 ```plaintext
-Copiar
-Editar
 <<<<<<< HEAD
 tu código
 =======
