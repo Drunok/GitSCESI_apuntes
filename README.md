@@ -193,3 +193,146 @@ Una pull request es una solicitud para que los cambios hechos en una rama de un 
 
 ## Revisar una Pull Request
 Es importante saber valorar el tiempo de la otra persona y es importante saber como dar un feedback positivo y productivo.
+
+# 6. Git Flow
+## Ramas Principales
+
+<p align="center">
+  <img src="Images/GitFlow1.png" alt="Ramas main y develop" width="400"/>
+</p>
+
+- **Main o Master**: Contiene codigo  de produccion.
+- **Dev o Develop**: Codigo pre-produccion con caracteristicas que aun tienen que ser probadas.
+
+## Ramas de Apoyo
+
+<p align="center">
+  <img src="Images/RamaDevelop.png" alt="Ramas Develop" width="400"/>
+</p>
+
+- **Feature**:  Cuando se trabaja en una nueva caracteristica para el proyecto.
+- **Release**: Cuando se prepara el lanzamiento de una nueva version
+- **Hotfix**: Cambios imprevistos o parches de ultimo momento.
+
+## GitHub Flow
+<p align="center">
+  <img src="Images/GitHubFlow.png" alt="Ramas Develop" width="400"/>
+</p>
+Es una estrategia diseñada por el equipo de GitHub que no es tan burocratica como lo es su predecesora Git Flow, ya que se basa en la creacion de ramas las cuales mediante PR seran integradas a la rama principal.
+Cabe recalcar que se puede elaborar un proceso de revision automatizado para verificar que el codigo cumpla con los estandares de la organizacion.
+
+## Trunk Based Development
+<p align="center">
+  <img src="Images/trunk.png" alt="Trunk development" width="400"/>
+</p>
+
+Trunk Based Development (TBD) es una estrategia de desarrollo en la que todos los desarrolladores trabajan sobre una única rama principal (como main o trunk) y realizan integraciones frecuentes, idealmente a diario.
+
+### Ventajas principales:
+- **Menos conflictos**: al integrar constantemente, se evitan grandes diferencias entre ramas.
+- **Entrega continua**: facilita la automatización y el despliegue continuo.
+- **Código más limpio y probado**: promueve pruebas automatizadas y revisiones constantes.
+- **Mayor colaboración**: el equipo trabaja sobre una base común y actualizada.
+
+## 🧭 Estrategias de flujo en Git – Conclusiones clave
+No adoptes una estrategia sin antes analizar tu contexto: no existen métodos universales ni inalterables.
+
+La estrategia elegida debe enfocarse en:
+✅ Entrega continua de valor
+✅ Buena experiencia de desarrollo
+✅ Alta calidad del software
+
+## 🚀 Recomendación ideal:
+Aspirar a trabajar directamente en la rama principal (main), con commits frecuentes y evitando ramas auxiliares prolongadas.
+
+## ⚠️ Para lograrlo se necesita:
+- Alta disciplina, seniority y responsabilidad.
+- Un sistema CI/CD sólido, rápido y confiable.
+- Excelente trabajo en equipo.
+
+## 🛠 Buenas prácticas:
+- Limita la duración de las ramas a 2 o 3 días como máximo.
+- Mejora tu CI/CD: mide cobertura de tests, velocidad de despliegue, cuellos de botella y puntos de bloqueo.
+- Permite commits directos a main en entornos bien gestionados y colaborativos.
+
+# 7. Buenas Practicas en Git
+Es recomendable hacer commits pequeños y seguidos agrupando las pequeñas mejoras que vas haciendolas
+
+## Cómo escribir buenos commits
+- Usa verbo en imperativo: Add, Fix, Change, Remove.
+- No uses punto final ni puntos suspensivos.
+- Máximo 50 caracteres en el título del commit.
+- Agrega contexto en el cuerpo si es necesario (después de una línea en blanco).
+- Usa prefijos semánticos para claridad:
+  * feat: nueva funcionalidad
+  * fix: corrección de errores
+  * docs: documentación
+  * refactor: mejora del código
+  * style:, test:, ci:, etc.
+
+Puedes usar herramientas como husky para validar código antes de hacer commit.
+
+## Escribir buenos nombres de ramas
+1. Se consistente al nombrar tus ramas
+2. Usa el nombre de la accion que realiza la rama: 
+  - bug
+  - feature
+  - experiment
+  - hotfix
+3. Usa los IDs de Jira o del sistema de tickets que uses.
+
+**OJO solo es recomendable modificar el historial de un repositorio si es que se publico las contraseñas o alguna credencial sensible del proyecto.**
+
+# 8. Como deshacer mis cambios
+- Si se quiere mantener los cambios 
+``` bash
+$ git reset --soft HEAD-1
+```
+- Si no se quiere mantener los cambios
+``` bash
+$ git reset --hard HEAD-1
+```
+
+# 9. Hooks, Alias y Trucos
+Un hook, o punto de enganche, es la posibilidad de ejecutar una acción o script cada vez que ocurre un evento
+determinado de Git.
+Estos se colocan dentro de la carpeta .git/hooks con el nombre del evento que escuchara.
+
+<p align="center">
+  <img src="Images/hooks.png" alt="hooks" width="400"/>
+</p>
+
+## Hooks del lado del cliente (local)
+Los hooks locales son scripts que se ejecutan en tu repositorio local y no se comparten automáticamente con otros repositorios. Esto permite tener configuraciones distintas en cada copia local.
+
+## Hooks comunes:
+- pre-commit: Ideal para ejecutar linters o verificar que no se estén comiteando demasiados cambios.
+- prepare-commit-msg: Permite modificar el mensaje del commit antes de que el usuario lo edite.
+- commit-msg: Verifica el formato del mensaje del commit. Útil con herramientas como commitlint.
+- post-commit: Se puede usar para enviar notificaciones (ej. a Slack).
+- pre-push: Ejecuta tests antes de subir cambios al repositorio remoto.
+- post-checkout y post-merge: Útiles para limpiar archivos temporales o eliminar ramas obsoletas.
+
+## Hooks del lado del servidor (remoto)
+Los hooks del servidor se ejecutan en el repositorio remoto (como GitHub, GitLab o tu propio servidor).
+Aunque no se usan comúnmente por los desarrolladores, son clave en sistemas grandes o automatizados.
+
+## Hooks comunes del servidor:
+- *** pre-receive ***: Verifica los commits antes de aceptarlos. Se puede usar para:
+
+  * Validar formato de commits.
+  * Comprobar permisos del usuario.
+  * Bloquear conflictos o rebase no permitidos.
+
+- *** update ***: Similar a pre-receive, pero más granular. Permite controlar qué ramas o referencias pueden actualizarse.
+
+- *** post-receive ***: Se usa después de recibir cambios.
+Ejemplos:
+  * Enviar notificaciones por email.
+  * Actualizar una interfaz o dashboard con nuevos commits o ramas.
+
+## Como puedo crear mi propio Hook
+Para crear un propio hook sólo tienes que crear un archivo nombre-del-hook en la carpeta .git/hooks y en él poner el
+código que quieras que se ejecute. Puedes usar todo tipo de intérpretes de lenguaje de programación como bash, node,
+python, perl, etc.
+
