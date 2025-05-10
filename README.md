@@ -318,15 +318,15 @@ Los hooks del servidor se ejecutan en el repositorio remoto (como GitHub, GitLab
 Aunque no se usan comúnmente por los desarrolladores, son clave en sistemas grandes o automatizados.
 
 ## Hooks comunes del servidor:
-- *** pre-receive ***: Verifica los commits antes de aceptarlos. Se puede usar para:
+- **pre-receive**: Verifica los commits antes de aceptarlos. Se puede usar para:
 
   * Validar formato de commits.
   * Comprobar permisos del usuario.
   * Bloquear conflictos o rebase no permitidos.
 
-- *** update ***: Similar a pre-receive, pero más granular. Permite controlar qué ramas o referencias pueden actualizarse.
+- **update**: Similar a pre-receive, pero más granular. Permite controlar qué ramas o referencias pueden actualizarse.
 
-- *** post-receive ***: Se usa después de recibir cambios.
+- **post-receive**: Se usa después de recibir cambios.
 Ejemplos:
   * Enviar notificaciones por email.
   * Actualizar una interfaz o dashboard con nuevos commits o ramas.
