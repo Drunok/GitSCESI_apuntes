@@ -150,4 +150,46 @@ $ git branch --delete rama_objetivo
 Esto es realizado con fines de organizacion, pero mucho cuidado ya que se perdera todo el trabajo
 realizado en ella si no esta mergeada.
 
+# 4. GitHub
+GitHub es un repositorio remoto alojado en la nube basado en el sistema de control de versiones Git, ofrece
+diversas funcionalidades al usuario con un una interfaz amigable.
 
+## ¿Que es un repositorio remoto?
+Los repositorios remotos son repositorios que están hospedados en un servidor
+y que servirá de punto de sincronización entre diferentes repositorios locales.
+
+## Clonar un repositorio remoto
+``` bash
+$ git clone https://github.com/Drunok/GitSCESI_apuntes.git
+
+```
+
+## Enlazar un repositorio local a uno remoto
+Para conectar nuestro repositorio local a uno remoto debemos aplicar el siguiente comando:
+``` bash
+$ git remote add <alias> <direccion> 
+```
+Como alias podemos usar cualquier nombre que querramos.
+
+## Para escribir en el repositorio remoto
+Mandamos los cambios a la rama main del repositorio remoto con el alias origin.
+``` bash
+$ git push origin main
+```
+En caso de no poder realizarse esta accion significa que el repositorio local no tiene cambios que han ocurrido en el 
+repositorio remoto.
+
+En el caso de crear una rama remota se procede a la creacion de una rama normal en nuestro repo remoto y luego se realiza
+la accion de push respectiva.
+
+## 5. Pull Request
+Una pull request es una solicitud para que los cambios hechos en una rama de un repositorio (generalmente en una copia o fork) se revisen y, si están correctos, se integren a la rama principal del proyecto.
+
+## Como hacer una buena Pull Request
+1. Buscar el archivo CONTRIBUTING.MD o seguir el estilo del repositorio
+2. Respetar el estilo del repositorio
+3. Enfoca tu codigo en una sola cosa
+4. Explica tu Pull Request
+
+## Revisar una Pull Request
+Es importante saber valorar el tiempo de la otra persona y es importante saber como dar un feedback positivo y productivo.
